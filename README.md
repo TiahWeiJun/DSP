@@ -24,6 +24,13 @@
    .\Debug\B_Plus_Tree_Project.exe
    ```
    This exe file will run the main.cpp file for internal testing of the B+ Tree functions. To get the experiments results, please follow the steps below.
+5. To automate the building and running of the code after changes, can create a batch file with the following commands and just run it everytime
+   ```
+   cd build
+   cmake ..
+   cmake --build .
+   .\Debug\B_Plus_Tree_Project.exe
+   ```
 
 ### Mac
 
@@ -48,4 +55,10 @@
    ```
    ./B_Plus_Tree_Project
    ```
-   This exe file will run the main.cpp file for internal testing of the B+ Tree functions. To get the experiments results, please follow the steps below.
+5. To automate the building and running of the code after changes, can create a .sh file with the following commands and just run it everytime
+   ```
+   cd build
+   cmake ..
+   make
+   ./B_Plus_Tree_Project
+   ```
