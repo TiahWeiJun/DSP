@@ -1,0 +1,6 @@
+runCode.sh
+/build
+
+.DS_Store 
+data/.DS_Store 
+.vscode/settings.json
