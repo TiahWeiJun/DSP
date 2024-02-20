@@ -43,7 +43,6 @@ int main() {
 
                 int totalRecordCount = 0;
                 int sizeRecord = 0;
-                int tempCount = 0;
                 while(getline(inputFile, line)){
                     totalRecordCount+=1;
                     istringstream iss(line);
@@ -93,7 +92,7 @@ int main() {
             }
 
             case 3: {
-                int target = 1000;
+                int target = 500;
                 int totalCount = 0;
                 float totalAvgRating = 0.0;
 
@@ -112,11 +111,8 @@ int main() {
 
                         int blockIndex = stoi(recordLocation.substr(0, recordLocation.find("-")));
                         int recordIndex = stoi(recordLocation.substr(recordLocation.find("-")+1, recordLocation.size()));
-
-                        const bool inSet = blockAccessSet.find(blockIndex) != blockAccessSet.end();
                         
                         blockAccessSet.insert(blockIndex);
-                        
                         
                         totalCount += 1;
                         MovieRecord record = storage.blockLocations[blockIndex].recordsList[recordIndex];

@@ -114,11 +114,19 @@ void Storage::LinearScanDelete(int deleteKey){
 
     int dataBlockAccess = 0;
 
-    for (Block block: this->blockLocations){
+    for (int i = 0; i < this->blockLocations.size(); i++){
         dataBlockAccess += 1;
-        for (MovieRecord record: block.recordsList){
-            // simulate delete record
+        
+        vector< MovieRecord >::iterator it = this->blockLocations[i].recordsList.begin();
+
+        while(it != this->blockLocations[i].recordsList.end()) {
+
+            if(it->numVotes == deleteKey) { 
+                it = this->blockLocations[i].recordsList.erase(it);
+            }
+            else ++it;
         }
+    
     }
 
     // End Time
