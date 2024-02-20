@@ -345,7 +345,7 @@ void BPlusTree::PrintStatsForTree(){
     for (int key: this->root->keys){
         cout << key << " ";
     }
-    cout << "\n\n";
+    cout << "\n";
 }
 
 

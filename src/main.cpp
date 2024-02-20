@@ -88,6 +88,7 @@ int main() {
                 cout << "End Insert into B+ Tree" << "\n";
 
                 tree.PrintStatsForTree();
+                cout << "\n";
                 break;
             }
 

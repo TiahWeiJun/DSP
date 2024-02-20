@@ -12,12 +12,6 @@ Storage::Storage(unsigned int storageSize) {
 
 void Storage::StoreRecord(MovieRecord movieRecord) {
 
-    // Check enough storage
-    if (this->numFilledBlocks == totalBlocks){
-        std::cout << "No more space in database storage";
-        return;
-    }
-
     int sizemovieRecord = sizeof(movieRecord);
 
     if (sizemovieRecord <= this->blockLocations[curBlockIndex].remainingBlockSize){
@@ -26,13 +20,21 @@ void Storage::StoreRecord(MovieRecord movieRecord) {
         curBlock.remainingBlockSize -= sizemovieRecord;
         this->blockLocations[curBlockIndex] = curBlock;
     } else {
+        this->numFilledBlocks += 1;
+
+        // Not enough storage
+        if (this->numFilledBlocks == this->totalBlocks){
+            std::cout << "No more space in database storage";
+            return;
+        }
+
         Block newBlock = Block{};
         newBlock.recordsList.push_back(movieRecord);
         newBlock.remainingBlockSize -= sizemovieRecord;
 
         this->blockLocations.push_back(newBlock);
         this->curBlockIndex += 1;
-        this->numFilledBlocks += 1;
+        
     }
 
    
