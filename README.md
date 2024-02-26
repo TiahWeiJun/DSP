@@ -16,12 +16,12 @@
    ```
 3. Run these two command to compile and build the exe file
    ```
-   cmake ..
+   cmake -S .. -G "MinGW Makefiles"
    cmake --build .
    ```
-4. An exe file should be created inside the Debug folder run this exe in console by running:
+4. An exe file should be created, run this exe in console by running:
    ```
-   .\Debug\B_Plus_Tree_Project.exe
+   ./B_Plus_Tree_Project.exe
    ```
    This exe file will run the main.cpp file for internal testing of the B+ Tree functions. To get the experiments results, please follow the steps below.
 5. To automate the building and running of the code after changes, can create a batch file with the following commands and just run it everytime

@@ -1,6 +1,9 @@
 #include "BPlusTree.h"
 #include <iostream>
 #include <queue>
+#include <cmath>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
