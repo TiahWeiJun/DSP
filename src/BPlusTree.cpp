@@ -635,7 +635,7 @@ void BPlusTree::deleteKeyFromParent(TreeNode* currentNode, TreeNode* deleteNode,
     TreeNode* childPointer;
     if (leftSibilingNode != nullptr){
         // enough size to borrow
-        if (leftSibilingNode->keys.size() - 1 >= floor(static_cast<double>(this->degree) / 2)){
+        if (leftSibilingNode->keys.size() - 1 >= floor(static_cast<double>(this->degree-1) / 2)){
             // borrowed key take from parent
             borrowKey = parent->keys[leftSibilingIndex];
             // set parent to last key of left node
@@ -658,12 +658,12 @@ void BPlusTree::deleteKeyFromParent(TreeNode* currentNode, TreeNode* deleteNode,
 
     if (rightSibilingNode != nullptr){
         // enough size to borrow
-        if (rightSibilingNode->keys.size() - 1 >= floor(static_cast<double>(this->degree) / 2)){
+        if (rightSibilingNode->keys.size() - 1 >= floor(static_cast<double>(this->degree-1) / 2)){
             // borrowed key take from parent
             borrowKey = parent->keys[rightSibilingIndex - 1];
-            // set parent to last key of left node
+            // set parent to first key of right node
             parent->keys[rightSibilingIndex - 1] = rightSibilingNode->keys[0];
-            // remove first key of left node
+            // remove first key of right node
             rightSibilingNode->keys.erase(rightSibilingNode->keys.begin());
 
             childPointer = rightSibilingNode->children[0];
