@@ -1,11 +1,14 @@
 #include "Storage.h"
 #include <iostream>
 #include <chrono> 
+#include <cmath>
+
 
 
 
 Storage::Storage(unsigned int storageSize) {
-    this->totalBlocks = storageSize / blockSize;
+    storageSize -= 12; // subtract off the metadata size of total blocks,numFilledBlocks and curBlockIndex
+    this->totalBlocks = floor(storageSize / blockSize);
     this->numFilledBlocks = 0;
     this->curBlockIndex = 0;
     this->blockLocations.push_back(Block({}));
